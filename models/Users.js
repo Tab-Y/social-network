@@ -4,6 +4,8 @@ const userSchema = new Schema(
   {
 // require content for user
   }
+  // virtual thoughts?
+//   virtual friend count?
 );
 
 
