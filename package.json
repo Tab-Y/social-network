@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.13"
+  },
+  "name": "1-018_module-18-social-network",
+  "description": "## Description",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tab-Y/social-network.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tab-Y/social-network/issues"
+  },
+  "homepage": "https://github.com/Tab-Y/social-network#readme"
+}
