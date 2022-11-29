@@ -1,4 +1,6 @@
 // const <Model> = require('./<Model>');
+const Reaction = require('./Reaction');
+const Thought = require('./Thought');
+const Users = require('./Users');
 
-
-module.exports = { } 
+module.exports = { Reaction, Thought, Users } 
