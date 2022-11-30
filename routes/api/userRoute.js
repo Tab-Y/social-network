@@ -12,7 +12,7 @@ router.route('/:userId')                        // /api/users/:userId
     .put(updateUser)                            // updates single user
     .delete(deleteUser)                         // deletes single user
 
-// Reactions
+// Friends
 router.route('/:userId/friends')                // /api/users/:userId/friends
     .post(addFriend)                            // adds new friend
 
