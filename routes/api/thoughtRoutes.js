@@ -15,8 +15,6 @@ router.route('/:thoughtId')                         // /api/thoughts/:thoughtId
 // Reactions
 router.route('/:thoughtId/reactions')               // /api/thoughts/:thoughtId/reactions
     .post(addReaction)                              // adds new reaction
-
-router.route('/:thoughtId/reactions/:reactionId')   // /api/thoughts/:thoughtId/reactions/:reactionId
     .delete(removeReaction)                         // deletes single reaction
 
 

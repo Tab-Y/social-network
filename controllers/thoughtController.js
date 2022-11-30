@@ -26,6 +26,7 @@ module.exports = {
         Thought.findOneAndUpdate(
             { _id: req.params.thoughtId },
             { $Set: req.body }, 
+            { new: true },
         )
         .then((user) => 
         !user ? res.status(404).json({ message: 'These thoughts have wandered off.'}) : res.status(200).json({ message: "This thought has been refreshed."})
@@ -44,7 +45,8 @@ module.exports = {
     addReaction(req, res) {         
         Thought.findOneAndUpdate(
             { _id: req.params.thoughtId },
-            { $addToSet: { reactions: { reactionId: req.params.reactionId }}}
+            { $addToSet: { reactions: req.body }},
+            { new: true },
         )
         .then((reaction) => 
         !reaction ? res.status(404).json({ message: 'Reaction not found'}) : res.status(200).json({ message: "Reaction adjusted."}))
@@ -54,7 +56,8 @@ module.exports = {
     removeReaction(req, res) {
         Thought.findOneAndUpdate(
             { _id: req.params.userId },
-            { $pull: { friends: req.body }}, 
+            { $pull: { reactions: req.body }}, 
+            { new: true },
         )
         .then((reaction) => 
         !reaction ? res.status(404).json({ message: 'Reaction not found'}) : res.status(200).json({ message: "Reaction redacted."}))

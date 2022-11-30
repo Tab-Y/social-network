@@ -26,6 +26,7 @@ module.exports = {
         User.findOneAndUpdate(
             { _id: req.params.userId },
             { $Set: req.body }, 
+            { new: true },
         )
         .then((user) => 
         !user ? res.status(404).json({ message: 'User not found'}) : res.status(200).json({ message: "This user has been made anew."})
@@ -45,6 +46,7 @@ module.exports = {
         User.findOneAndUpdate(
             { _id: req.params.userId },
             { $addToSet: { friends: req.body }},            // adds friend to list
+            { new: true },
         )
         .then((user) => 
         !user ? res.status(404).json({ message: 'User not found'}) : res.status(200).json({ message: "This user has a new friend."})
@@ -56,6 +58,7 @@ module.exports = {
         User.findOneAndUpdate(
             { _id: req.params.userId },
             { $pull: { friends: req.body }},                // removes friend from list
+            { new: true },
         )
         .then((user) => 
         !user ? res.status(404).json({ message: 'User not found'}) : res.status(200).json({ message: "This user lost an old friend."})
