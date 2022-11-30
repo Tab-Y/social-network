@@ -10,7 +10,7 @@ module.exports = {
     // gets single user                 // as shown in assignment 26
     getSingleUser(req, res) {
         User.findOne({ _id: req.params.userId })
-        .select('-__v')
+        .select('-__v')                 // mongoose version flag
         .then((user) => 
         !user ? res.status(404).json({ message: 'User not found'}) : res.json(user))
         .catch((err) => res.status(500).json(err));
@@ -20,6 +20,17 @@ module.exports = {
         User.create(req.body)
         .then((user) => res.json(user))
         .catch((err) => res.status(500).json(err))
+    },
+    // updates existing user            // as shown in assignment 26
+    updateUser(req, res) {
+        User.findOneAndUpdate(
+            { _id: req.params.userId },
+            { $Set: req.body }, 
+        )
+        .then((user) => 
+        !user ? res.status(404).json({ message: 'User not found'}) : res.status(200).json({ message: "This user has been made anew."})
+        )
+        .catch((err) => res.status(500).json(err));
     },
     // deletes a user                   // as shown in assignment 26
     deleteUser(req, res) {
@@ -47,7 +58,7 @@ module.exports = {
             { $pull: { friends: req.body }},                // removes friend from list
         )
         .then((user) => 
-        !user ? res.status(404).json({ message: 'User not found'}) : res.status(200).json({ message: "This user has a new friend."})
+        !user ? res.status(404).json({ message: 'User not found'}) : res.status(200).json({ message: "This user lost an old friend."})
         )
         .catch((err) => res.status(500).json(err));
     }
