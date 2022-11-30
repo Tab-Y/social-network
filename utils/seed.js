@@ -1,13 +1,19 @@
 const connection = require('../config/connection');
-const {  } = require('../models');      // models
-const {  } = require('./data');         //functions
+const { Reaction, Thought, User } = require('../models');      // models
+const { userSeed, thoughtSeed } = require('./data');         // data to be seeded
 
 connection.on('error', (err) => err);
 
 connection.once('open', async () => {
     console.log('Connection established');
 
-    // the functions of seeding
+    await User.deleteMany({});                          // clears existing collection
+
+    await Thought.deleteMany({});                       // clears existing collection
+
+    await User.collection.insertMany(userSeed);         // inserts user seed data into collection
+
+    await Thought.collection.insertMany(thoughtSeed);   // inserts thought seed data into collection
 
     console.info('Seeds planted.');
     process.exit(0);

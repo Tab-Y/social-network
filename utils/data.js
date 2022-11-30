@@ -1,11 +1,46 @@
-const user = [
+const userSeed = [
+{
+    "username": "something",
+    "email": "test@gmail.com",
+    "thoughts": [],
+    "friends": [],
+    "__v": 0,
+},
+{
+    "username": "yellowbandit",
+    "email": "yellow@bandit.com",
+    "thoughts": [],
+    "friends": [],
+    "__v": 0,
+},
+{
+    "username": "test",
+    "email": "testing@gmail.com",
+    "thoughts": [],
+    "friends": [],
+    "__v": 0,
+},
+];
 
-]
+const thoughtSeed = [
+{
+    "thoughtText": "What a wonderfull test thought this is.",
+    "username": "something",
+    "reactions": [],
+    "__v": 0,
+},
+{
+    "thoughtText": "What a wonderfull test thought this is.",
+    "username": "yellowbandit",
+    "reactions": [],
+    "__v": 0,
+},
+{
+    "thoughtText": "What a wonderfull test thought this is.",
+    "username": "test",
+    "reactions": [],
+    "__v": 0,
+},
+];
 
-const thought = [
-
-]
-
-// any functions needed for seeding
-
-module.exports = { };   // any function needed for seeding
+module.exports = { userSeed, thoughtSeed }; 
