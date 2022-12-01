@@ -24,8 +24,8 @@ module.exports = {
     // updates existing user            // as shown in assignment 26
     updateUser(req, res) {
         User.findOneAndUpdate(
-            { _id: req.params.userId },
-            { $Set: req.body }, 
+            { _id: req.params.userId },         // what is being looked for
+            { $set: req.body },                 // updates to include
             { runValidators: true, new: true },
         )
         .then((user) => 
@@ -45,7 +45,7 @@ module.exports = {
     addFriend(req, res) {
         User.findOneAndUpdate(
             { _id: req.params.userId },
-            { $addToSet: { friends: req.body }},            // adds friend to list
+            { $addToSet: { friends: req.body.friends }},            // adds friend to list
             { runValidators: true, new: true },
         )
         .then((user) => 
@@ -57,7 +57,7 @@ module.exports = {
     deleteFriend(req, res) {
         User.findOneAndUpdate(
             { _id: req.params.userId },
-            { $pull: { friends: req.body }},                // removes friend from list
+            { $pull: { friends: req.body.friends }},                // removes friend from list
             { runValidators: true, new: true },
         )
         .then((user) => 
