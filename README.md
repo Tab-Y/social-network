@@ -2,45 +2,34 @@
 
 ## Description 
 
-TBD
+This is a social network API. It allows a user to create a new account, update the account, add and remove friends, as well as share, update and delete thoughts, or reactions to the thoughts.
  
 ## Table of Contents
  
 - [Installation](#installation)
-- [Usage](#usage)
-- [Credits](#credits)
-- [Badges](#badges)
-- [Features](#features)
-- [Questions](#questions)
-- [Tests](#tests) 
+- [Usage](#usage) 
 
 ##  Installation 
 
-TBD 
+Install the needed modules through `npm i`
+Run the seeder `npm run seed`
+Start the application `npm start`
+
+View in your testing application, such as Insomnia or Postman.
 
 ## Usage 
 
-TBD 
+https://drive.google.com/file/d/1ZG57vPCZAae5WfAoG4z6cgY_W_qiNY3m/view
 
-![Descriptive text](assets/images/screenshot.png) 
+![Screenshot of getting all users](./assets/img/screenshot-api-user.png) 
+![Screenshot of creating new user](./assets/img/screenshot-api-user2.png) 
+![Screenshot of updating user](./assets/img/screenshot-user-update.png) 
+![Screenshot of adding friend](./assets/img/screenshot-user-friend.png)
+![Screenshot of deleting user](./assets/img/screenshot-user-delete.png) 
+![Screenshot of getting all thoughts](./assets/img/screenshot-thought.png) 
+![Screenshot of creating new thought](./assets/img/screenshot-thought-new.png) 
+![Screenshot of updating existing thought](./assets/img/screenshot-thought-update.png) 
 
-## Credits 
-
-TBD  
-
-## Badges 
-
-Add badges to this section 
-
-## Features 
-
-Add features to this space 
-
-## Questions 
-
-If you have any questions or concerns, please reach out to Tab-Y at tlyoumans@gmail.com. 
-
-## Tests 
-
-TBD 
-
+Currently there are issues with deleting thoughts and removing reactions.
+When a thought gets deleted, the server crashes. The thought is still deleted.
+When a reaction is attempted to be removed, it is not found.
